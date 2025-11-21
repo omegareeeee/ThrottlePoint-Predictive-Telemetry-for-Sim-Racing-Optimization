@@ -1,0 +1,53 @@
+# =====================
+# Python
+# =====================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+env/
+venv/
+*.egg-info/
+dist/
+build/
+pip-wheel-metadata/
+
+# =====================
+# Node / Next.js
+# =====================
+node_modules/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# =====================
+# ML / Data
+# =====================
+*.h5
+*.pt
+*.ckpt
+*.joblib
+*.pkl
+/data/
+*.csv
+*.tsv
+
+# =====================
+# IDEs
+# =====================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# =====================
+# OS Files
+# =====================
+.DS_Store
+Thumbs.db
