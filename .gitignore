@@ -38,6 +38,7 @@ yarn.lock
 /data/
 *.csv
 *.tsv
+*.ibt
 
 # =====================
 # IDEs
