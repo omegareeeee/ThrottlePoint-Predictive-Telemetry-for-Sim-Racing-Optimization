@@ -3,11 +3,11 @@ import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from telemetry.loader_dir import fileLoader
-from telemetry.visualization_dir import visualization
+from telemetry.loader import fileLoader
+from telemetry.visualization import visualization
 
 def main():
-    loader = fileLoader.fileLoader("csv", "data/tele.csv")
+    loader = fileLoader.openCsv("data/tele.csv")
     lapData = loader.getLapData()
     visualization.plotThrottleBrakevsDistance(lapData)
 
