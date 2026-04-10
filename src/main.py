@@ -5,11 +5,14 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from telemetry.loader import fileLoader
 from telemetry.visualization import visualization
+import pandas as pd
 
 def main():
-    loader = fileLoader.openCsv("data/tele.csv")
-    lapData = loader.getLapData()
-    visualization.plotThrottleBrakevsDistance(lapData)
+    # loader = fileLoader.openCsv("data/tele.csv")
+    lapData = pd.read_csv("data/tele.csv")
+
+    print(lapData)
+    # visualization.plotThrottleBrakevsDistance(lapData)
 
 
 if __name__ == "__main__":
