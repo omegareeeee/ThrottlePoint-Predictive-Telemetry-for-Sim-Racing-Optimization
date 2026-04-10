@@ -16,17 +16,13 @@ class VariablesOffsets:
 
 class Parser:
 
-    def __init__(self):
-        ir = irsdk.IBT()
-        ir.open(filePath)
-        ir._ibt_file
-        
-    # TODO: implement parser
-    def parseIbt (filePath: str) -> DataFrame:
+    def __init__(self, filePath: str):
         # check if it's vaild .ibt file
         fileType = str.split(".")[-1]
         if(fileType != "ibt"):
             raise ValueError("Invalid file extension: must be .ibt")
+        self.ir = irsdk.IBT()
+        ir.open(filePath)
 
     def extractHeaderInfo(ir: IBT):
         session_info_len = ir._header.session_info_offset
