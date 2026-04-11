@@ -4,10 +4,6 @@ import struct
 
 SESSION_INFO_OFFSET = 39600
 
-sample_start = 0
-buffer_size = 0
-ir
-
 class VariablesOffsets:
     SPEED = 310
     THROTTLE = 189
@@ -15,9 +11,12 @@ class VariablesOffsets:
     LAP_PCT = 221
 
 class Parser:
-
+    self.sample_start = 0
+    self.buffer_size = 0
+    self.ir
     def __init__(self, filePath: str):
         # check if it's vaild .ibt file
+        #TODO: veryfiy this works
         fileType = str.split(".")[-1]
         if(fileType != "ibt"):
             raise ValueError("Invalid file extension: must be .ibt")
