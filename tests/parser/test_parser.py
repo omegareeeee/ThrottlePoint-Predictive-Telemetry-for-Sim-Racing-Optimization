@@ -1,7 +1,10 @@
 import pytest
-from src.telemetry.parser import parser
+import src.telemetry.parser.parser as p
 
-class TestClass:
+class TestClass:        
+    def testFileType(self):
+        ibt_parser = p.Parser("data.ibt")
+
     def testIncorrectFileType(self):
-        with pytest.raises(ValueError("Invalid file extension: must be .ibt")):
-            ibt_parser = parser.Parser("data.py")
+        with pytest.raises(ValueError):
+            ibt_parser = p.Parser("incorrectType.py")
