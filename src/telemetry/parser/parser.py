@@ -25,27 +25,30 @@ class Parser:
         self.ir = irsdk.IBT()
         self.ir.open(filePath)
 
-    def extractHeaderInfo(self):
+        self._extract_header_info()
+        self._parse_data()
+
+    def _extract_header_info(self):
         session_info_len = self.ir._header.session_info_len
         self.buffer_size = self.ir._header.buf_len
         self.sample_start = SESSION_INFO_OFFSET + session_info_len 
     
-    def extractSpeed(self):
+    def _parse_data(self):
         data = self.ir._ibt_file.read()
         for i in range(1000):
             base = self.sample_start + (i * self.buffer_size)
-
+        
             brake = struct.unpack_from(
                 "<f",  # little-endian float
                 data,
                 base + VariablesOffsets.BRAKE
             )[0]
 
-            throtle = struct.unpack_from(
+            throttle = struct.unpack_from(
                 "<f",  # little-endian float
                 data,
                 base + VariablesOffsets.THROTTLE
             )[0]
             self.brakes.append(brake)
-            self.throttles.append(throtle)
+            self.throttles.append(throttle)
 
